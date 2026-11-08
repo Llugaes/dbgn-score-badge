@@ -7,8 +7,10 @@ test('评分档位及切换边界', () => {
 });
 test('进度沿完整猫头轮廓按分数计算', () => {
   for (const score of [0, 4, 6, 6.5, 8.5, 9.5, 10]) {
-    const {progress} = scoreStyle(score);
-    assert.match(renderBadge(score), new RegExp(`pathLength="100" stroke-dasharray="${progress} ${100-progress}"`));
+    const match = renderBadge(score).match(/stroke-dasharray="([0-9.]+) ([0-9.]+)"/);
+    assert.ok(match);
+    const [filled, rest] = match.slice(1).map(Number);
+    assert.ok(Math.abs(filled / (filled + rest) - score / 10) < 1e-8);
   }
 });
 test('分数验证与无声四舍五入', () => {

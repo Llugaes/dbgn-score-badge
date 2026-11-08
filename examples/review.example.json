@@ -1,0 +1,14 @@
+{
+  "cards": [
+    {
+      "id": "example-game",
+      "title": "示例游戏",
+      "score": 8.5,
+      "summary": "战斗有趣，演出出色，剧情略有遗憾。",
+      "pros": ["战斗系统有趣", "演出表现出色"],
+      "cons": ["后期战斗重复", "剧情铺垫不足"],
+      "cover": "cover.jpg",
+      "focus": "center"
+    }
+  ]
+}
